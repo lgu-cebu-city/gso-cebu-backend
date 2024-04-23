@@ -20,7 +20,7 @@ export class DepartmentService {
   }
 
   findAll() {
-    const dept = this.departmentRepo.query("SELECT bd.*, hd.positionId, hd.position_name FROM gso_bayugan.department bd INNER JOIN hr_db.setup_department hd ON(bd.hr_department = hd.id) ORDER BY sequence ASC");
+    const dept = this.departmentRepo.query("SELECT bd.*, hd.positionId, hd.position_name FROM gso_cebu.department bd INNER JOIN hr_db.setup_department hd ON(bd.hr_department = hd.id) ORDER BY sequence ASC");
     return dept;
   }
 

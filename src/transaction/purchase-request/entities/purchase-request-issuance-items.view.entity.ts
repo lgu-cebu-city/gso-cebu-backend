@@ -17,18 +17,18 @@ import { PurchaseRequest } from "./purchase-request.entity";
       prmain_br_detail.quantity - IFNULL(ris.issuedQty,0) 'quantity',
       prmain_br_detail.typeId
     FROM
-      gso_bayugan.purchase_order  po 
-      INNER JOIN gso_bayugan. purchase_order_item_details po_item
+      gso_cebu.purchase_order  po 
+      INNER JOIN gso_cebu. purchase_order_item_details po_item
         ON po_item.poId = po.id 
-      INNER JOIN gso_bayugan.inspection_and_acceptance_report iar
+      INNER JOIN gso_cebu.inspection_and_acceptance_report iar
         ON iar.poId = po.id AND iar.status = 'ACTIVE'
-      INNER JOIN gso_bayugan.inspection_and_acceptance_report_items iari
+      INNER JOIN gso_cebu.inspection_and_acceptance_report_items iari
         ON iari.iarId = iar.id AND iari.poItemId = po_item.id
-      LEFT JOIN  gso_bayugan.purchase_request prconso
+      LEFT JOIN  gso_cebu.purchase_request prconso
         ON po.prId = prconso.id
-      LEFT JOIN  gso_bayugan.purchase_request_view view_main
+      LEFT JOIN  gso_cebu.purchase_request_view view_main
         ON view_main.prId = prconso.id
-      LEFT JOIN  gso_bayugan.purchase_request_item_details prmain_br_detail
+      LEFT JOIN  gso_cebu.purchase_request_item_details prmain_br_detail
         ON prmain_br_detail.prId = view_main.id
       LEFT JOIN (
         SELECT

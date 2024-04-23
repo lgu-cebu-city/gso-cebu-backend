@@ -88,9 +88,9 @@ import { InventoryReportDepartmentDetailsView } from "./inventory-report-departm
             0 AS 'returnQty'
       FROM
         item i
-            INNER JOIN gso_bayugan.type t
+            INNER JOIN gso_cebu.type t
           ON (t.id = i.typeId)
-            INNER JOIN gso_bayugan.group g
+            INNER JOIN gso_cebu.group g
           ON (g.id = i.groupId)
             INNER JOIN (
           SELECT

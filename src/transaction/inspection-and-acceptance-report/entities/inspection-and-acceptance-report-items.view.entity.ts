@@ -36,7 +36,7 @@ import { InspectionAndAcceptanceReport } from "./inspection-and-acceptance-repor
           ON(iari.iarId = icsi.iarId AND iari.itemId = icsi.itemId)
       GROUP BY
         iari.id, arei.itemId, icsi.itemId) a
-      INNER JOIN gso_bayugan.type t
+      INNER JOIN gso_cebu.type t
         ON(a.groupId = t.id)
     WHERE
       quantity > 0
