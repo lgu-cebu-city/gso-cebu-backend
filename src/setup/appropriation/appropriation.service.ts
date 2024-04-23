@@ -36,6 +36,11 @@ export class AppropriationService {
     return accntBudget;
   }
 
+  findPpmpByOfficeYear(_year: number, _officeId: string) {
+    const accntBudget = this.appropriationRepo.query("CALL budget_db.ppmp_annex('"+ _year +"','"+ _officeId +"')");
+    return accntBudget;
+  }
+
   async findMany(sofIDList: string[]) {
     let ids = "";
     sofIDList.forEach((sofId, i) => {

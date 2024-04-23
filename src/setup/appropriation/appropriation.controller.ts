@@ -30,6 +30,11 @@ export class AppropriationController {
     return this.appropriationService.findAllByYear(year);
   }
 
+  @Get('ppmp/:year/:deptId')
+  findPpmpByOfficeYear(@Param('year') year: number, @Param('deptId') deptId: string) {
+    return this.appropriationService.findPpmpByOfficeYear(year, deptId);
+  }
+
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.appropriationService.findOne(id);
