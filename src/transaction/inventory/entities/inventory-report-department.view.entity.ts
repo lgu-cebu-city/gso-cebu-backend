@@ -95,7 +95,6 @@ import { InventoryReportDepartmentDetailsView } from "./inventory-report-departm
             INNER JOIN (
           SELECT
             itemId,
-            brandId,
             description,
             MIN(price) 'price',
             SUM(quantity) 'quantity',
@@ -107,6 +106,7 @@ import { InventoryReportDepartmentDetailsView } from "./inventory-report-departm
             refType = 'Issue'
           GROUP BY
             itemId,
+            description,
             departmentId
           ) il
           ON (il.itemId = i.id)

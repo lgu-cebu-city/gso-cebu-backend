@@ -69,7 +69,6 @@ import { InventoryReportDetailsView } from "./inventory-report-details.view.enti
         INNER JOIN (
           SELECT
             itemId,
-            brandId,
             description,
             MIN(price) 'price',
             SUM(quantity) 'quantity'
@@ -80,7 +79,8 @@ import { InventoryReportDetailsView } from "./inventory-report-details.view.enti
             refType = 'Receive' AND
             (SELECT status FROM inspection_and_acceptance_report WHERE id = refId) = 'ACTIVE'
           GROUP BY
-            itemId
+            itemId,
+            description
           ) il
           ON (il.itemId = i.id)
       WHERE
